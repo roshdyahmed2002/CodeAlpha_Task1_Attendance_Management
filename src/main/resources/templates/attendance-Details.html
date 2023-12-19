@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance-Graduate List</title>
+</head>
+<body>
+
+<h2>Attendance-Graduate List</h2>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Attendance Date</th>
+    <th>Graduate Name</th>
+    <th>Is Present</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="attendanceGraduate : ${attendanceGraduates}">
+    <td th:text="${attendanceGraduate.attendanceGraduate_ID}"></td>
+    <td th:text="${attendanceGraduate.attendance.date}"></td>
+    <td th:text="${attendanceGraduate.graduate.name}"></td>
+    <td th:text="${attendanceGraduate.isPresent}"></td>
+    <td>
+      <!-- Button to set isPresent to true, replace '/setPresent/' with your actual URL -->
+      <a th:href="@{'/setPresent/' + ${attendanceGraduate.attendanceGraduate_ID}}">
+        <button type="button">Set Present</button>
+      </a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+<a th:href="@{'/'}">
+  <button type="button">Home</button>
+</a>
+</body>
+</html>

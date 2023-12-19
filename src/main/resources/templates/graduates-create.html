@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Graduate Form</title>
+</head>
+<body>
+
+<h2>Enter Graduate Name</h2>
+
+<form action="#" th:action="@{/saveGraduate}" th:object="${graduate}" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" th:field="*{name}" required>
+
+  <button type="submit">Submit</button>
+</form>
+
+<br>
+<a th:href="@{'/'}">
+  <button type="button">Home</button>
+</a>
+
+</body>
+</html>

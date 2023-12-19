@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Graduates</title>
+</head>
+<body>
+
+<h2>Graduates</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="graduate : ${graduates}">
+        <td th:text="${graduate.graduate_ID}"></td>
+        <td th:text="${graduate.name}"></td>
+        <td>
+            <a th:href="@{'/deleteGraduate/' + ${graduate.graduate_ID}}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a th:href="@{/graduateForm}">
+    <button type="button">Add New Graduate</button>
+</a>
+
+<br>
+<br>
+
+<a th:href="@{'/'}">
+    <button type="button">Home</button>
+</a>
+
+</body>
+</html>
